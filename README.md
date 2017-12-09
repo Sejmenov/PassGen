@@ -1,2 +1,3 @@
 # PassGen
-a password generator in python
+a simple password generator in python
+(goal: practice python)
