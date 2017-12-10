@@ -3,6 +3,7 @@ Created on 9 Dec 2017
 
 @author: sejmenov
 '''
+# much simpler program than original!
 
 import random
 
