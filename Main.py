@@ -3,20 +3,42 @@ Created on 10 Dec 2017
 
 @author: sejmenov
 '''
-# much simpler program than original!
+# added error handling!
 
 import random
 
+while True:
+    try:
+        n = int(input("How many characters should your password have?:"))
+    except ValueError:
+        print("Value must be a full number!")
+        continue
+    if n <= 6:
+        print("Must be at least 7 characters long!")
+        continue
+    else:
+        break
+        
 def passgen():
-    password = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-    for i in range(20):
-        password[i] = chr(random.randint(33, 127))
-        i += 1
-    return ''.join(password)
+    password = ""
+    for i in range(n):
+        password = password + chr(random.randint(33, 127))
+    return password
 
-n = int(input("How many 20 symbols long passwords do you want to create?:"))
-file = open("Password.txt", "w+")
-for i in range(n):
+while True:
+    try:
+        m = int(input("How many passwords do you want to create?:"))
+    except ValueError:
+        print("Value must be a full number!")
+        continue
+    if m < 1:
+        print("Must be atleast 1 password!")
+        continue
+    else:
+        break
+        
+file = open("Password.txt", "w")
+for i in range(m):
     print(i+1," ",passgen(),file=file)
     i +=1
 file.close()
