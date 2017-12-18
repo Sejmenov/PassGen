@@ -36,9 +36,10 @@ while True:
         continue
     else:
         break
-        
-file = open("Password.txt", "w")
-for i in range(m):
-    print(i+1," ",passgen(),file=file)
-    i +=1
-file.close()
+try:        
+    file = open("Password.txt", "w")
+    for i in range(m):
+        print(i+1," ",passgen(),file=file)
+        i +=1
+finally:
+    file.close()
